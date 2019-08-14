@@ -36,8 +36,13 @@ const wrangleEnergyInfo = (data, levelType) => {
   return { percent: parseFloat(level) };
 };
 
+const wrangleEngineInfo = data => {
+  
+};
+
 module.exports = {
   wrangleVehicleInfo,
   wrangleSecurityInfo,
-  wrangleEnergyInfo
+  wrangleEnergyInfo,
+  wrangleEngineInfo
 };

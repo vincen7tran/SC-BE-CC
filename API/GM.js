@@ -24,8 +24,28 @@ const getEnergyService = id => {
   });
 };
 
+const postEngineService= (id, action) => {
+  if (action !== 'START' && action !== 'STOP') {
+    return {
+      data: {
+        status: '400',
+        reason: 'Invalid action, please try "START" or "STOP"'
+      }
+    };
+  }
+
+  const command = action === 'START' ? 'START_VEHICLE' : 'STOP_VEHICLE';
+
+  return axios.post(`${GM_URL}/actionEngineService`, {
+    id,
+    command,
+    responseType: 'JSON'  
+  });
+};
+
 module.exports = {
   getVehicleInfoService,
   getSecurityStatusService,
-  getEnergyService
+  getEnergyService,
+  postEngineService
 };

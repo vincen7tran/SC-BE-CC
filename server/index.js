@@ -105,4 +105,27 @@ app.get('/vehicles/:id/battery', async (req, res) => {
   }
 });
 
+// POST Vehicle Engine Command Service
+app.post('/vehicles/:id/engine', async (req, res) => {
+  const { id } = req.params;
+  const { action } = req.body;
+  
+  try {
+    const engineInfo = await GM.postEngineService(id, action);
+    let { status, reason, data } = engineInfo.data;
+
+    // An invalid command results in a 400 status code
+    // An invalid vehicle ID results in a 404 status code
+    if (status !== '200') return res.status(status).send({ reason });
+
+    const result = util.wrangleEngineInfo(data);
+
+    console.log(result)
+
+  } catch (error) {
+    // If GM API is Down
+    res.status(500).send({ error });
+  }
+});
+
 module.exports = app;
