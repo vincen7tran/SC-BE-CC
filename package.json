@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "test": "jest"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/vincen7tran/SC-BE-CC#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
   },
