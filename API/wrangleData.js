@@ -21,7 +21,6 @@ const wrangleSecurityInfo = data => {
   for (let door of values) {
     const { location, locked } = door;
     let isLocked = locked.value === 'True' ? true : false;
-    console.log(location.type, locked.value);
 
     result.push({ location: location.value, locked: isLocked });
   }
@@ -29,7 +28,18 @@ const wrangleSecurityInfo = data => {
   return result;
 };
 
+const wrangleEnergyInfo = (data, levelType) => {
+  console.log(data, levelType);
+
+  const level = data[levelType].value;
+
+  if (level === null) return { reason: 'Value not found, please verify vehicle type.' };
+
+  return { percent: level };
+};
+
 module.exports = {
   wrangleVehicleInfo,
-  wrangleSecurityInfo
+  wrangleSecurityInfo,
+  wrangleEnergyInfo
 };

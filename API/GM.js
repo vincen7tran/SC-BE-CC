@@ -17,7 +17,15 @@ const getSecurityStatusService = id => {
   });
 };
 
+const getEnergyService = id => {
+  return axios.post(`${GM_URL}/getEnergyService`, {
+    id,
+    responseType: 'JSON'  
+  });
+};
+
 module.exports = {
   getVehicleInfoService,
-  getSecurityStatusService
+  getSecurityStatusService,
+  getEnergyService
 };
