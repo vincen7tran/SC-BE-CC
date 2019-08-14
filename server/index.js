@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const GM = require('../API/GM');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -13,10 +12,12 @@ app.get('/vehicles/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const vehicleInfo = await GM.getVehicleInfoService(id);
+    const { status, reason } = vehicleInfo.data;
+
+    if (status === '404') return res.status(404).send({ status, reason });
+
     const { data } = vehicleInfo.data;
-    const { status, reason, vin, color, fourDoorSedan, twoDoorCoupe, driveTrain } = data;
-    
-    if (status === '404') res.status(404).send(`Status: ${status}, ${reason}`);
+    const { vin, color, fourDoorSedan, twoDoorCoupe, driveTrain } = data;
   
     let doorCount = 'N/A';
 
@@ -31,9 +32,9 @@ app.get('/vehicles/:id', async (req, res) => {
     };
   
     res.status(200).send(result);
-  } catch (e) {
-    res.status(500).send('Status: 500, Internal Server Error');
+  } catch (error) {
+    res.status(500).send({ status: 500, error });
   }
 });
 
-app.listen(PORT, () => console.log(`Listening on Port: ${PORT}`));
+module.exports = app;
