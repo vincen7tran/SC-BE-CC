@@ -11,7 +11,7 @@ describe('Get Energy Information by ID Tests', () => {
         const { percent } = body;
 
         expect(percent).toBeDefined();
-        expect(typeof percent).toBe('string');
+        expect(typeof percent).toBe('number');
       }));
   
   it ('It properly fetches energy data for Vehicle ID 1235',
@@ -23,7 +23,7 @@ describe('Get Energy Information by ID Tests', () => {
         const { percent } = body;
 
         expect(percent).toBeDefined();
-        expect(typeof percent).toBe('string');
+        expect(typeof percent).toBe('number');
       }));
   
   it ('It properly handles wrong fuel type for Vehicle ID 1234',

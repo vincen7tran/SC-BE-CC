@@ -29,13 +29,11 @@ const wrangleSecurityInfo = data => {
 };
 
 const wrangleEnergyInfo = (data, levelType) => {
-  console.log(data, levelType);
-
   const level = data[levelType].value;
 
   if (level === 'null') return { reason: 'Value not found, please verify vehicle fuel type!' };
 
-  return { percent: level };
+  return { percent: parseFloat(level) };
 };
 
 module.exports = {
