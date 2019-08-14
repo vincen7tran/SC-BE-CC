@@ -33,7 +33,7 @@ const wrangleEnergyInfo = (data, levelType) => {
 
   const level = data[levelType].value;
 
-  if (level === null) return { reason: 'Value not found, please verify vehicle type.' };
+  if (level === 'null') return { reason: 'Value not found, please verify vehicle fuel type!' };
 
   return { percent: level };
 };

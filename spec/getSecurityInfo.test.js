@@ -44,9 +44,6 @@ describe('Get Security Information by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(404)
       .then(({ body }) => {
-        const { status } = body;
-
-        expect(status).toBe('404');
         expect(body).toHaveProperty('reason');
       }));
 });

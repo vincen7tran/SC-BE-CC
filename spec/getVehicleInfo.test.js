@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../server/index');
 
 describe('Get Vehicle Information by ID Tests', () => {
-  it ('It properly vehicle fetches data for Vehicle ID 1234',
+  it ('It properly fetches vehicle data for Vehicle ID 1234',
     () => request(app)
       .get('/vehicles/1234')
       .expect('Content-Type', /json/)
@@ -36,9 +36,6 @@ describe('Get Vehicle Information by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(404)
       .then(({ body }) => {
-        const { status } = body;
-
-        expect(status).toBe('404');
         expect(body).toHaveProperty('reason');
       }));
 });
