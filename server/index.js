@@ -16,11 +16,11 @@ app.get('/vehicles/:id', async (req, res) => {
 
   try {
     const vehicleInfo = await GM.getVehicleInfoService(id);
-    const { status, reason, data } = vehicleInfo.data;
+    const { status, error, data } = vehicleInfo.data;
 
     // If status code is a 404, GM API did not find a vehicle with the specified ID
     // send error reason and return immediately
-    if (status === '404') return res.status(404).send({ reason });
+    if (status === '404') return res.status(404).send({ error });
 
     const result = util.wrangleVehicleInfo(data);
   
@@ -37,11 +37,11 @@ app.get('/vehicles/:id/doors', async (req, res) => {
 
   try {
     const securityInfo = await GM.getSecurityStatusService(id);
-    const { status, reason, data } = securityInfo.data;
+    const { status, error, data } = securityInfo.data;
 
     // If status code is a 404, GM API did not find a vehicle with the specified ID
     // send error reason and return immediately
-    if (status === '404') return res.status(404).send({ reason });
+    if (status === '404') return res.status(404).send({ error });
     
     const result = util.wrangleSecurityInfo(data);
 
@@ -59,18 +59,18 @@ app.get('/vehicles/:id/fuel', async (req, res) => {
 
   try {
     const fuelInfo = await GM.getEnergyService(id);
-    let { status, reason, data } = fuelInfo.data;
+    let { status, error, data } = fuelInfo.data;
 
     // If status code is a 404, GM API did not find a vehicle with the specified ID
     // send error reason and return immediately
-    if (status === '404') return res.status(404).send({ reason });
+    if (status === '404') return res.status(404).send({ error });
 
     const result = util.wrangleEnergyInfo(data, 'tankLevel');
 
-    ({ reason, percent } = result);
+    ({ error, percent } = result);
 
     // If reason, the vehicle did exist, but had no value for tankLevel
-    if (reason) return res.status(400).send({ reason });
+    if (error) return res.status(400).send({ error });
 
     res.status(200).send({ percent });
   } catch (error) {
@@ -85,18 +85,18 @@ app.get('/vehicles/:id/battery', async (req, res) => {
 
   try {
     const batteryInfo = await GM.getEnergyService(id);
-    let { status, reason, data } = batteryInfo.data;
+    let { status, error, data } = batteryInfo.data;
 
     // If status code is a 404, GM API did not find a vehicle with the specified ID
     // send error reason and return immediately
-    if (status === '404') return res.status(404).send({ reason });
+    if (status === '404') return res.status(404).send({ error });
 
     const result = util.wrangleEnergyInfo(data, 'batteryLevel');
 
-    ({ reason, percent } = result);
+    ({ error, percent } = result);
 
     // If reason, the vehicle did exist, but had no value for batteryLevel
-    if (reason) return res.status(400).send({ reason });
+    if (error) return res.status(400).send({ error });
 
     res.status(200).send({ percent });
   } catch (error) {
@@ -113,11 +113,11 @@ app.post('/vehicles/:id/engine', async (req, res) => {
   try {
     const engineInfo = await GM.postEngineService(id, action);
     const { data } = engineInfo;
-    const { status, reason, actionResult } = data;
+    const { status, error, actionResult } = data;
 
     // Status 400: Invalid Command
     // Status 404: Invalid Vehicle ID
-    if (status !== '200') return res.status(status).send({ reason });
+    if (status !== '200') return res.status(status).send({ error });
 
     // TODO: Validate HTTP Status Code for actionResult status = 'FAILED' inside util.wrangleEngineInfo
     // GM API gives '200' on 'FAILED', but what should the SmartCar API give?

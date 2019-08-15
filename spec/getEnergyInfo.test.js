@@ -32,7 +32,7 @@ describe('Get Energy Information by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(400)
       .then(({ body }) => {
-        expect(body).toHaveProperty('reason');
+        expect(body).toHaveProperty('error');
       }));
 
   it ('It properly handle wrong fuel type for Vehicle ID 1235',
@@ -41,7 +41,7 @@ describe('Get Energy Information by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(400)
       .then(({ body }) => {
-        expect(body).toHaveProperty('reason');
+        expect(body).toHaveProperty('error');
       }));
 
   it ('It handles a Bad ID for Fuel EP',
@@ -50,7 +50,7 @@ describe('Get Energy Information by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(404)
       .then(({ body }) => {
-        expect(body).toHaveProperty('reason');
+        expect(body).toHaveProperty('error');
       }));
 
   it ('It handles a Bad ID for Battery EP',
@@ -59,6 +59,6 @@ describe('Get Energy Information by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(404)
       .then(({ body }) => {
-        expect(body).toHaveProperty('reason');
+        expect(body).toHaveProperty('error');
       }));
 });

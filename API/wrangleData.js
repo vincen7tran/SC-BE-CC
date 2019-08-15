@@ -1,6 +1,4 @@
-const wrangleVehicleInfo = data => {
-  const { vin, color, fourDoorSedan, twoDoorCoupe, driveTrain } = data;
-  
+const wrangleVehicleInfo = ({ vin, color, fourDoorSedan, twoDoorCoupe, driveTrain }) => {
   let doorCount = 'N/A';
 
   if (fourDoorSedan.value === 'True') doorCount = 4;
@@ -14,8 +12,8 @@ const wrangleVehicleInfo = data => {
   };
 };
 
-const wrangleSecurityInfo = data => {
-  const { values } = data.doors; // values is the array of door objects
+const wrangleSecurityInfo = ({ doors }) => {
+  const { values } = doors; // values is the array of door objects
   const result = [];
 
   for (let door of values) {
@@ -31,20 +29,21 @@ const wrangleSecurityInfo = data => {
 const wrangleEnergyInfo = (data, levelType) => {
   const level = data[levelType].value;
 
-  if (level === 'null') return { reason: 'Value not found, please verify vehicle fuel type!' };
+  if (level === 'null') return { error: 'Value not found, please verify vehicle fuel type!' };
 
   return { percent: parseFloat(level) };
 };
 
-const wrangleEngineInfo = actionResult => {
-  const { status } = actionResult;
-
-  if (status === 'EXECUTED') return {
-    statusCode: 200,
-    statusMessage: 'success'
-  };
+const wrangleEngineInfo = ({ status }) => {
+  if (status === 'EXECUTED') {    
+    return {
+      statusCode: 200,
+      statusMessage: 'success'
+    };
+  }
 
   // TODO: Validate HTTP Status Code for actionResult status = 'FAILED'
+  // Currently set to 500 for 'FAILED'
   return {
     statusCode: 500,
     statusMessage: 'error'

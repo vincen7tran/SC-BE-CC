@@ -41,7 +41,7 @@ describe('Post Engine Commands by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(400)
       .then(({ body }) => {
-        expect(body).toHaveProperty('reason');
+        expect(body).toHaveProperty('error');
       }));
 
   it ('It handles a Bad ID',
@@ -51,6 +51,6 @@ describe('Post Engine Commands by ID Tests', () => {
       .expect('Content-Type', /json/)
       .expect(404)
       .then(({ body }) => {
-        expect(body).toHaveProperty('reason');
+        expect(body).toHaveProperty('error');
       }));
 });
