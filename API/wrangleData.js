@@ -1,5 +1,6 @@
 // This file contains all the functions that take GM API's responses
 // and restructure the data to fit SmartCar's API specs
+// refer to exampleDataShapeGM.js for inputs to these functions
 
 const wrangleVehicleInfo = ({ vin, color, fourDoorSedan, twoDoorCoupe, driveTrain }) => {
   let doorCount = 'N/A';

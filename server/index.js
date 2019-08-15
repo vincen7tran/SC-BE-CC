@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const GM = require('../API/GM'); // Fetches data from GM API
+const GM = require('../API/GM'); // Fetches data from GM API. GM API data shape samples in exampleDataShapeGM.js
 const util = require('../API/wrangleData'); // Wrangles data from GM API to desired shape
 
 const app = express();
