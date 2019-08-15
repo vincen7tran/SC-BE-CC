@@ -33,6 +33,7 @@ describe('Get Security Information by ID Tests', () => {
           if (location === 'frontLeft') expect(typeof locked).toBe('boolean');
         }
 
+        // Validate twoDoorCoupe does not have back doors
         expect(body['backLeft']).toBe(undefined);
         expect(body['backRight']).toBe(undefined);
         expect(body.length).toBe(2);

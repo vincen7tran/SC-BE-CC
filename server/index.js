@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const GM = require('../API/GM'); // Handles getting data from GM API
+const GM = require('../API/GM'); // Fetches data from GM API
 const util = require('../API/wrangleData'); // Wrangles data from GM API to desired shape
 
 const app = express();
@@ -115,14 +115,16 @@ app.post('/vehicles/:id/engine', async (req, res) => {
     const { data } = engineInfo;
     const { status, reason, actionResult } = data;
 
-    // An invalid command results in a 400 status code
-    // An invalid vehicle ID results in a 404 status code
+    // Status 400: Invalid Command
+    // Status 404: Invalid Vehicle ID
     if (status !== '200') return res.status(status).send({ reason });
 
     // TODO: Validate HTTP Status Code for actionResult status = 'FAILED' inside util.wrangleEngineInfo
+    // GM API gives '200' on 'FAILED', but what should the SmartCar API give?
     const result = util.wrangleEngineInfo(actionResult);
 
     const { statusCode, statusMessage } = result;
+    console.log(statusCode, statusMessage);
 
     res.status(statusCode).send({ status: statusMessage });
   } catch (error) {

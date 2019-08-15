@@ -44,9 +44,18 @@ describe('Get Energy Information by ID Tests', () => {
         expect(body).toHaveProperty('reason');
       }));
 
-  it ('It handles a Bad ID',
+  it ('It handles a Bad ID for Fuel EP',
     () => request(app)
-      .get('/vehicles/1234123')
+      .get('/vehicles/1234123/fuel')
+      .expect('Content-Type', /json/)
+      .expect(404)
+      .then(({ body }) => {
+        expect(body).toHaveProperty('reason');
+      }));
+
+  it ('It handles a Bad ID for Battery EP',
+    () => request(app)
+      .get('/vehicles/1234123/battery')
       .expect('Content-Type', /json/)
       .expect(404)
       .then(({ body }) => {

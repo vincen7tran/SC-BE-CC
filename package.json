@@ -1,10 +1,11 @@
 {
-  "name": "SmartCar",
+  "name": "smartcar_coding_challenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "smartcar backend coding challenge",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
     "test": "jest"
   },
   "repository": {
