@@ -11,7 +11,7 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
 - npm install -- Install Dependencies
 - npm run dev -- Run Server with Nodemon
 - npm start -- Run Server without Nodemon
-- npm test -- Run Jest & Supertest API TestSuite 
+- npm test -- Run Jest & Supertest API Test Suite 
 
 ## API Information
 
