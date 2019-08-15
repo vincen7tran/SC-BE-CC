@@ -6,6 +6,7 @@ const GM = require('../API/GM'); // Fetches data from GM API
 const util = require('../API/wrangleData'); // Wrangles data from GM API to desired shape
 
 const app = express();
+
 const splashPage = path.join(__dirname, '/../public/index.html');
 const page404 = path.join(__dirname, '/../public/404.html');
 
@@ -118,14 +119,14 @@ app.get('/vehicles/:id/battery', async (req, res) => {
 app.post('/vehicles/:id/engine', async (req, res) => {
   const { id } = req.params;
   const { action } = req.body;
-  console.log(id, action);
+
   try {
     const engineInfo = await GM.postEngineService(id, action);
     const { data } = engineInfo;
     const { status, reason, actionResult } = data;
 
     // Status 400: Invalid Command
-    // Status 404: Invalid Vehicle ID
+    // Status 404: GM API did not find a vehicle with the specified ID
     if (status !== '200') return res.status(status).send({ error: reason });
 
     // TODO: Validate HTTP Status Code for actionResult status = 'FAILED' inside util.wrangleEngineInfo
@@ -141,8 +142,7 @@ app.post('/vehicles/:id/engine', async (req, res) => {
   }
 });
 
-// 404 Page
-
+// 404 Page for all other possible routes
 app.get('*', (req, res) => {
   res.status(404).sendFile(page404);
 });

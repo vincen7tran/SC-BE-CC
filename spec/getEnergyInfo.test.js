@@ -26,7 +26,7 @@ describe('Get Energy Information by ID Tests', () => {
         expect(typeof percent).toBe('number');
       }));
   
-  it ('It properly handles wrong fuel type for Vehicle ID 1234',
+  it ('It properly handles wrong fuel type for Vehicle ID 1234. Fuel Vehicle to Battery Endpoint.',
     () => request(app)
       .get('/vehicles/1234/battery')
       .expect('Content-Type', /json/)
@@ -35,7 +35,7 @@ describe('Get Energy Information by ID Tests', () => {
         expect(body).toHaveProperty('error');
       }));
 
-  it ('It properly handle wrong fuel type for Vehicle ID 1235',
+  it ('It properly handle wrong fuel type for Vehicle ID 1235. Electric Vehicle to Fuel Endpoint.',
     () => request(app)
       .get('/vehicles/1235/fuel')
       .expect('Content-Type', /json/)
