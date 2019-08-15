@@ -14,7 +14,7 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
 - npm test -- Run Jest & Supertest API Test Suite
 - Example API Vehicle IDs -- 1234, 1235
 
-## API Information
+## SmartCar API Information
 
 | API Endpoints  | Request Type | Input | Output | Description  |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
@@ -24,7 +24,7 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
 | /vehicles/:id/battery | GET  | Vehicle ID  | Status Code 200, JSON  | Get Vehicle Battery Range  |
 | /vehicles/:id/engine | POST  | Vehicle ID, Action  | Status Code 200 or 500, JSON  | Remotely Start or Stop Engine |
 
-Example API JSON Shape
+Example SmartCar API JSON Shape
 ```javascript
 // GET Vehicle General Info
   {
