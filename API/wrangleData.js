@@ -39,7 +39,7 @@ const wrangleEnergyInfo = (data, levelType) => {
 
   // If level is 'null', client specified the wrong energy type
   // i.e. battery endpoint with a fuel vehicle ID
-  if (level === 'null') return { error: 'Value not found, please verify vehicle energy type!' };
+  if (level === 'null') return { error: 'Energy info not found, please verify vehicle energy type!' };
 
   return { percent: parseFloat(level) }; // return percent as a number type
 };
