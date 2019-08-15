@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('../server/index');
 
-describe('Get Security Information by ID Tests', () => {
+describe('Test Suite: Get Vehicle Security Information by ID', () => {
   it ('It properly fetches security data for Vehicle ID 1234',
     () => request(app)
       .get('/vehicles/1234/doors')

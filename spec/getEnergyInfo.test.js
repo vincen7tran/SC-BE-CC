@@ -1,8 +1,8 @@
 const request = require('supertest');
 const app = require('../server/index');
 
-describe('Get Energy Information by ID Tests', () => {
-  it ('It properly fetches energy data for Vehicle ID 1234',
+describe('Test Suite: Get Vehicle Energy Information by ID', () => {
+  it ('It properly fetches fuel energy data for Vehicle ID 1234',
     () => request(app)
       .get('/vehicles/1234/fuel')
       .expect('Content-Type', /json/)
@@ -14,7 +14,7 @@ describe('Get Energy Information by ID Tests', () => {
         expect(typeof percent).toBe('number');
       }));
   
-  it ('It properly fetches energy data for Vehicle ID 1235',
+  it ('It properly fetches battery energy data for Vehicle ID 1235',
     () => request(app)
       .get('/vehicles/1235/battery')
       .expect('Content-Type', /json/)

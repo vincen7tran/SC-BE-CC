@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('../server/index');
 
-describe('Post Engine Commands by ID Tests', () => {
+describe('Test Suite: Post Engine Commands by ID', () => {
   it ('It properly posts a "START" engine command for Vehicle ID 1234',
     () => request(app)
       .post('/vehicles/1234/engine')
