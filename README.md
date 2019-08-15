@@ -17,13 +17,13 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
 
 | API Endpoints  | Request Type | Input | Output | Description  |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
-| /vehicles/:id | GET  | Vehicle ID  | STATUS CODE 200, JSON | Get General Vehicle Info  |
-| /vehicles/:id/doors | GET  | Vehicle ID   | STATUS CODE 200, JSON  | Get Vehicle Security Info  | 
-| /vehicles/:id/fuel | GET  | Vehicle ID  | STATUS CODE 200, JSON  | Get Vehicle Fuel Range  |
-| /vehicles/:id/battery | GET  | Vehicle ID  | STATUS CODE 200, JSON  | Get Vehicle Battery Range  |
-| /vehicles/:id/engine | POST  | Vehicle ID, Action  | STATUS CODE 200 or 500, JSON  | Remotely Start or Stop Engine |
+| /vehicles/:id | GET  | Vehicle ID  | Status Code 200, JSON | Get General Vehicle Info  |
+| /vehicles/:id/doors | GET  | Vehicle ID   | Status Code 200, JSON  | Get Vehicle Security Info  | 
+| /vehicles/:id/fuel | GET  | Vehicle ID  | Status Code 200, JSON  | Get Vehicle Fuel Range  |
+| /vehicles/:id/battery | GET  | Vehicle ID  | Status Code 200, JSON  | Get Vehicle Battery Range  |
+| /vehicles/:id/engine | POST  | Vehicle ID, Action  | Status Code 200 or 500, JSON  | Remotely Start or Stop Engine |
 
-API JSON Shape
+Example API JSON Shape
 ```javascript
 // GET Vehicle General Info
 {
