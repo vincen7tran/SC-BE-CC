@@ -3,7 +3,7 @@
 SmartCar API that interfacts with the General Motors' API to allow the client to:
   - Fetch General Vehicle Information
   - Fetch Vehicle Security Information
-  - Fetch Vehicle Energy Information
+  - Fetch Vehicle Energy Information (Fuel Range or Battery Range)
   - Remotely START or STOP Vehicle Engine
 
 ## Quick Start
@@ -53,7 +53,7 @@ Example API JSON Shape
   }
 ]
 
-// GET Vehicle Fuel Range or Battery Range
+// GET Vehicle Energy Info (Fuel Range or Battery Range)
 {
   "percent": 30.2
 }
