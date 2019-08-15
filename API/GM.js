@@ -25,8 +25,8 @@ const getEnergyService = id => {
 };
 
 const postEngineService= (id, action) => {
-  // Catch if the action is invalid before making request to GM
-  // Match shape to GM's JSON structure
+  // Catch if the action is invalid before making a request to GM
+  // Match return object's shape to GM's JSON structure so that same destructuring can be used
   if (action !== 'START' && action !== 'STOP') {
     return {
       data: {
