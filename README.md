@@ -1,6 +1,6 @@
 # SmartCar Back-End Coding Challenge
 
-> SmartCar API that interfacts with the General Motor's API to allow the client to:
+SmartCar API that interfacts with the General Motor's API to allow the client to:
   - Fetch General Vehicle Information
   - Fetch Vehicle Security Information
   - Fetch Vehicle Energy Information
