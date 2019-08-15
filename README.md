@@ -59,13 +59,13 @@ Example API JSON Shape
   }
 
 // POST Vehicle Engine Service
-// Input
+  // Input
   {
     "action": "START|STOP"
   }
 
-// Output
-// Status Code 200 for 'success', Status Code 500 for 'error'
+  // Output
+  // Status Code 200 for 'success', Status Code 500 for 'error'
   {
     "status": "success|error"
   }
