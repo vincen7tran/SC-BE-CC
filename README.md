@@ -12,7 +12,7 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
 - npm run dev -- Run Server with Nodemon
 - npm start -- Run Server without Nodemon
 - npm test -- Run Jest & Supertest API Test Suite
-- Example Vehicle IDs for API -- 1234, 1235
+- Example API Vehicle IDs -- 1234, 1235
 
 ## API Information
 
