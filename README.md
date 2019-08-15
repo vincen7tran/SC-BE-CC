@@ -6,11 +6,6 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
   - Fetch Vehicle Energy Information
   - Remotely START or STOP Vehicle Engine
 
-## Table of Contents
-
-1. [Quick Start](#Quick Start)
-1. [API Information](#API Information)
-
 ## Quick Start
 
 - npm install -- Install Dependencies
@@ -26,7 +21,7 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
 | /vehicles/:id/doors | GET  | Vehicle ID   | STATUS CODE 200, JSON  | Get Vehicle Security Info  | 
 | /vehicles/:id/fuel | GET  | Vehicle ID  | STATUS CODE 200, JSON  | Get Vehicle Fuel Range  |
 | /vehicles/:id/battery | GET  | Vehicle ID  | STATUS CODE 200, JSON  | Get Vehicle Battery Range  |
-| /vehicles/:id/engine | POST  | Vehicle ID, Action: 'START" || 'STOP'  | STATUS CODE 200 || 500, JSON  | Remotely Start or Stop Engine |
+| /vehicles/:id/engine | POST  | Vehicle ID, Action  | STATUS CODE 200 or 500, JSON  | Remotely Start or Stop Engine |
 
 API JSON Shape
 ```javascript
