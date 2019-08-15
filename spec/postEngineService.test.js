@@ -1,6 +1,10 @@
 const request = require('supertest');
 const app = require('../server/index');
 
+// Engine Service Test Suite
+// Tests check specific endpoints for appropriate status codes, content-type, and response format
+// Tests also check valid and invalid inputs
+
 describe('Test Suite: Post Engine Commands by ID', () => {
   it ('It properly posts a "START" engine command for Vehicle ID 1234',
     () => request(app)

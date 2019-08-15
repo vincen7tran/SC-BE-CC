@@ -1,6 +1,7 @@
 const request = require('supertest');
 const app = require('../server/index');
 
+// Security Info Test Suite
 // Tests check specific endpoints for appropriate status codes, content-type, and response format
 // Tests also check valid and invalid inputs
 
