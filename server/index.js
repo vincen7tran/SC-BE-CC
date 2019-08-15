@@ -7,7 +7,7 @@ const util = require('../API/wrangleData'); // Wrangles data from GM API to desi
 
 const app = express();
 
-const splashPage = path.join(__dirname, '/../public/index.html');
+const homePage = path.join(__dirname, '/../public/index.html');
 const page404 = path.join(__dirname, '/../public/404.html');
 
 app.use(bodyParser.json());
@@ -15,10 +15,10 @@ app.use(bodyParser.json());
 // SmartCar API
 
 // Home Page
-const sendSplash = (req, res) => res.status(200).sendFile(splashPage);
+const sendHome = (req, res) => res.status(200).sendFile(homePage);
 
-app.get('/', sendSplash);
-app.get('/vehicles', sendSplash);
+app.get('/', sendHome);
+app.get('/vehicles', sendHome);
 
 // GET Vehicle Information
 app.get('/vehicles/:id', async (req, res) => {
