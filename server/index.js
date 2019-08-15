@@ -124,7 +124,6 @@ app.post('/vehicles/:id/engine', async (req, res) => {
     const result = util.wrangleEngineInfo(actionResult);
 
     const { statusCode, statusMessage } = result;
-    console.log(statusCode, statusMessage);
 
     res.status(statusCode).send({ status: statusMessage });
   } catch (error) {
