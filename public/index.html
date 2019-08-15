@@ -4,9 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"> 
   <title>Document</title>
 </head>
 <body>
-  <p>hi</p>
+  <div class="container ui">
+    <div class="ui segment">
+      <h1>Hello, Welcome to SmartCar API!</h1>
+      <div class="ui segment">
+          <table class="ui celled table">
+              <thead>
+                <tr><th>Function</th>
+                <th>Endpoint</th>
+                <th>Description</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td data-label="Function">Get Vehicle Information</td>
+                  <td data-label="Endpoint">/vehicles/:id</td>
+                  <td data-label="Description">Get the general information regarding a vehicle by its ID.</td>
+                </tr>
+                <tr>
+                  <td data-label="Function">Get Security Information</td>
+                  <td data-label="Endpoint">/vehicles/:id/doors</td>
+                  <td data-label="Description">Get information on which doors are locked on a vehicle by its ID.</td>
+                </tr>
+                <tr>
+                  <td data-label="Function">Get Energy Information (Fuel)</td>
+                  <td data-label="Endpoint">/vehicles/:id/fuel</td>
+                  <td data-label="Description">Get information on a vehicle's fuel range by its ID.</td>
+                </tr>
+                <tr>
+                    <td data-label="Function">Get Energy Information (Battery)</td>
+                    <td data-label="Endpoint">/vehicles/:id/battery</td>
+                    <td data-label="Description">Get information on an electric vehicle's battery range by its ID.</td>
+                  </tr>
+                <tr>
+                    <td data-label="Function">Remotely Control Vehicle Engine</td>
+                    <td data-label="Endpoint">/vehicles/:id/engine</td>
+                    <td data-label="Description">Remotely Start or Stop a vehicle's engine by its ID.</td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
