@@ -112,16 +112,19 @@ app.post('/vehicles/:id/engine', async (req, res) => {
   
   try {
     const engineInfo = await GM.postEngineService(id, action);
-    let { status, reason, data } = engineInfo.data;
+    const { data } = engineInfo;
+    const { status, reason, actionResult } = data;
 
     // An invalid command results in a 400 status code
     // An invalid vehicle ID results in a 404 status code
     if (status !== '200') return res.status(status).send({ reason });
 
-    const result = util.wrangleEngineInfo(data);
+    // TODO: Validate HTTP Status Code for actionResult status = 'FAILED' inside util.wrangleEngineInfo
+    const result = util.wrangleEngineInfo(actionResult);
 
-    console.log(result)
+    const { statusCode, statusMessage } = result;
 
+    res.status(statusCode).send({ status: statusMessage });
   } catch (error) {
     // If GM API is Down
     res.status(500).send({ error });

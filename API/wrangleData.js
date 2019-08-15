@@ -36,8 +36,19 @@ const wrangleEnergyInfo = (data, levelType) => {
   return { percent: parseFloat(level) };
 };
 
-const wrangleEngineInfo = data => {
-  
+const wrangleEngineInfo = actionResult => {
+  const { status } = actionResult;
+
+  if (status === 'EXECUTED') return {
+    statusCode: 200,
+    statusMessage: 'success'
+  };
+
+  // TODO: Validate HTTP Status Code for actionResult status = 'FAILED'
+  return {
+    statusCode: 500,
+    statusMessage: 'error'
+  };
 };
 
 module.exports = {
