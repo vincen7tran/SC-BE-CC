@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -5,10 +6,15 @@ const GM = require('../API/GM'); // Fetches data from GM API
 const util = require('../API/wrangleData'); // Wrangles data from GM API to desired shape
 
 const app = express();
+const splashPage = path.join(__dirname, '/../public/index.html');
 
 app.use(bodyParser.json());
 
+const sendSplash = (req, res) => res.status(200).sendFile(splashPage);
+
 // SmartCar API
+app.get('/', sendSplash);
+app.get('/vehicles', sendSplash);
 
 // GET Vehicle Information
 app.get('/vehicles/:id', async (req, res) => {
@@ -114,7 +120,7 @@ app.post('/vehicles/:id/engine', async (req, res) => {
     const engineInfo = await GM.postEngineService(id, action);
     const { data } = engineInfo;
     const { status, reason, actionResult } = data;
-    
+
     // Status 400: Invalid Command
     // Status 404: Invalid Vehicle ID
     if (status !== '200') return res.status(status).send({ error: reason });
