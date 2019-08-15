@@ -1,3 +1,6 @@
+// This file contains all the functions that take GM API's responses
+// and restructure the data to fit SmartCar's API specs
+
 const wrangleVehicleInfo = ({ vin, color, fourDoorSedan, twoDoorCoupe, driveTrain }) => {
   let doorCount = 'N/A';
 
@@ -26,10 +29,13 @@ const wrangleSecurityInfo = ({ doors }) => {
   return result;
 };
 
+// This function works for both the battery and fuel endpoint
+// The levelType parameter is specific for each endpoint
+// Fuel = tankLevel, Battery = batteryLevel
 const wrangleEnergyInfo = (data, levelType) => {
   const level = data[levelType].value;
 
-  // If level is null, client specified the wrong energy type
+  // If level is 'null', client specified the wrong energy type
   // i.e. battery endpoint with a fuel vehicle ID
   if (level === 'null') return { error: 'Value not found, please verify vehicle energy type!' };
 

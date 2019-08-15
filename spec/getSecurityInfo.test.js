@@ -1,6 +1,9 @@
 const request = require('supertest');
 const app = require('../server/index');
 
+// Tests check specific endpoints for appropriate status codes, content-type, and response format
+// Tests also check valid and invalid inputs
+
 describe('Test Suite: Get Vehicle Security Information by ID', () => {
   it ('It properly fetches security data for Vehicle ID 1234',
     () => request(app)
@@ -17,7 +20,7 @@ describe('Test Suite: Get Vehicle Security Information by ID', () => {
           if (location === 'backRight') expect(typeof locked).toBe('boolean');
         }
 
-        expect(body.length).toBe(4);
+        expect(body.length).toBe(4); // fourDoorSedan should only have 4 door objects in response array
       }));
   
   it ('It properly fetches security data for Vehicle ID 1235',

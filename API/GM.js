@@ -3,6 +3,7 @@ const axios = require('axios');
 const GM_URL = 'http://gmapi.azurewebsites.net';
 
 // GM API
+// All functions return an axios promise to be used in server/index.js' async/await functions
 const getVehicleInfoService = id => {
     return axios.post(`${GM_URL}/getVehicleInfoService`, {
       id,
@@ -25,8 +26,8 @@ const getEnergyService = id => {
 };
 
 const postEngineService= (id, action) => {
-  // Catch if the action is invalid before making a request to GM
-  // Match return object's shape to GM's JSON structure so that same destructuring can be used
+  // Catch if the action is invalid before making a request to GM's API
+  // Match return object's shape to GM's JSON structure so that same destructuring can be used in server/index.js
   if (action !== 'START' && action !== 'STOP') {
     return {
       data: {

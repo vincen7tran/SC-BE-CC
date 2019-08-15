@@ -1,6 +1,9 @@
 const request = require('supertest');
 const app = require('../server/index');
 
+// Tests check specific endpoints for appropriate status codes, content-type, and response format
+// Tests also check valid and invalid inputs
+
 describe('Test Suite: Get Vehicle Energy Information by ID', () => {
   it ('It properly fetches fuel energy data for Vehicle ID 1234',
     () => request(app)

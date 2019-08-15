@@ -103,7 +103,7 @@ app.get('/vehicles/:id/battery', async (req, res) => {
 
     const result = util.wrangleEnergyInfo(data, 'batteryLevel');
 
-    ({ error, percent } = result);
+    ({ error, percent } = result); // destructuring syntax for variables that are already declared
 
     // If reason, the vehicle did exist, but had no value for batteryLevel
     if (error) return res.status(400).send({ error });
