@@ -26,47 +26,47 @@ SmartCar API that interfacts with the General Motors' API to allow the client to
 Example API JSON Shape
 ```javascript
 // GET Vehicle General Info
-{
-  "vin": "1213231",
-  "color": "Metallic Silver",
-  "doorCount": 4,
-  "driveTrain": "v8"
-}
+  {
+    "vin": "1213231",
+    "color": "Metallic Silver",
+    "doorCount": 4,
+    "driveTrain": "v8"
+  }
 
 // GET Vehicle Security Info
-[
-  {
-    "location": "frontLeft",
-    "locked": true
-  },
-  {
-    "location": "frontRight",
-    "locked": true
-  },
-  {
-    "location": "backLeft",
-    "locked": true
-  },
-  {
-    "location": "backRight",
-    "locked": false
-  }
-]
+  [
+    {
+      "location": "frontLeft",
+      "locked": true
+    },
+    {
+      "location": "frontRight",
+      "locked": true
+    },
+    {
+      "location": "backLeft",
+      "locked": true
+    },
+    {
+      "location": "backRight",
+      "locked": false
+    }
+  ]
 
 // GET Vehicle Energy Info (Fuel Range or Battery Range)
-{
-  "percent": 30.2
-}
+  {
+    "percent": 30.2
+  }
 
 // POST Vehicle Engine Service
 // Input
-{
-  "action": "START|STOP"
-}
+  {
+    "action": "START|STOP"
+  }
 
 // Output
 // Status Code 200 for 'success', Status Code 500 for 'error'
-{
-  "status": "success|error"
-}
+  {
+    "status": "success|error"
+  }
 ```
