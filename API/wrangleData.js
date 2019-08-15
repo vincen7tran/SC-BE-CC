@@ -4,6 +4,7 @@
 const wrangleVehicleInfo = ({ vin, color, fourDoorSedan, twoDoorCoupe, driveTrain }) => {
   let doorCount = 'N/A';
 
+  // return doorCount is a number type
   if (fourDoorSedan.value === 'True') doorCount = 4;
   else if (twoDoorCoupe.value === 'True') doorCount = 2;
 
@@ -23,7 +24,7 @@ const wrangleSecurityInfo = ({ doors }) => {
     const { location, locked } = door;
     let isLocked = locked.value === 'True' ? true : false;
 
-    result.push({ location: location.value, locked: isLocked });
+    result.push({ location: location.value, locked: isLocked }); // return locked as a boolean type
   }
 
   return result;
@@ -39,7 +40,7 @@ const wrangleEnergyInfo = (data, levelType) => {
   // i.e. battery endpoint with a fuel vehicle ID
   if (level === 'null') return { error: 'Value not found, please verify vehicle energy type!' };
 
-  return { percent: parseFloat(level) };
+  return { percent: parseFloat(level) }; // return percent as a number type
 };
 
 const wrangleEngineInfo = ({ status }) => {
