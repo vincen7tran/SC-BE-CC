@@ -5,10 +5,10 @@ const GM_URL = 'http://gmapi.azurewebsites.net';
 // GM API -- Response and Request samples in exampleDataShapeGM.js
 // All functions return an axios promise to be used in server/index.js' async/await functions
 const getVehicleInfoService = id => {
-    return axios.post(`${GM_URL}/getVehicleInfoService`, {
-      id,
-      responseType: 'JSON'
-    });
+  return axios.post(`${GM_URL}/getVehicleInfoService`, {
+    id,
+    responseType: 'JSON'
+  });
 };
 
 const getSecurityStatusService = id => {
