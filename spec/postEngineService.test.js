@@ -22,7 +22,7 @@ describe('Test Suite: Post Engine Commands by ID', () => {
         expect(['success', 'error']).toContain(status);
       }));
 
-  it ('It properly posts a "START" engine command for Vehicle ID 1234',
+  it ('It properly posts a "STOP" engine command for Vehicle ID 1234',
     () => request(app)
       .post('/vehicles/1234/engine')
       .send({ action: 'STOP' })
@@ -38,7 +38,7 @@ describe('Test Suite: Post Engine Commands by ID', () => {
         expect(['success', 'error']).toContain(status);
       }));
   
-  it ('It properly posts a "STSTARTOP" engine command for Vehicle ID 1235',
+  it ('It properly posts a "START" engine command for Vehicle ID 1235',
     () => request(app)
       .post('/vehicles/1235/engine')
       .send({ action: 'START' })
