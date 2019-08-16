@@ -5,7 +5,7 @@
 const wrangleVehicleInfo = ({ vin, color, fourDoorSedan, twoDoorCoupe, driveTrain }) => {
   let doorCount = 'N/A';
 
-  // return doorCount is a number type
+  // return doorCount as a number type
   if (fourDoorSedan.value === 'True') doorCount = 4;
   else if (twoDoorCoupe.value === 'True') doorCount = 2;
 
