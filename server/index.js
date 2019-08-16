@@ -79,7 +79,7 @@ app.get('/vehicles/:id/fuel', async (req, res) => {
 
     ({ error, percent } = result); // destructuring syntax for variables that are already declared
 
-    // If reason, the vehicle did exist, but had no value for tankLevel
+    // If reason, the vehicle did exist, but had 'null' for tankLevel
     if (error) return res.status(400).send({ error });
 
     res.status(200).send({ percent });
@@ -105,7 +105,7 @@ app.get('/vehicles/:id/battery', async (req, res) => {
 
     ({ error, percent } = result); // destructuring syntax for variables that are already declared
 
-    // If reason, the vehicle did exist, but had no value for batteryLevel
+    // If reason, the vehicle did exist, but had 'null' for batteryLevel
     if (error) return res.status(400).send({ error });
 
     res.status(200).send({ percent });
